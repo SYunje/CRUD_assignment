@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/resource/css/bootstrap.css">
+</head>
+<body>
+    <h1>LIKELION 11 Blog Project</h1>
+
+    <form action="{% url 'search' %}" method="get">
+        
+        <div class="input-group">
+            <div class="form-outline">
+  
+              <input type="text" name="query" id="query">
+        
+            </div>
+            <button type="submint" class="btn btn-primary">
+              <i class="fas fa-search">검색해보세요</i>
+            </button>
+          </div>
+
+
+
+
+<a href="{% url 'new' %}">새 글 작성하기</a>
+
+
+<div>
+    {% for blog in blogs %}
+    <a href="{%url 'detail' blog.id %}">
+        <h2>{{blog.title}}</h2>
+        <p>{{blog.summary}}</p>
+        <p>{{blog.created_at}}</p>
+    </a>
+    {% endfor %}
+</div>
+
+<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
+</body>
+</html>
